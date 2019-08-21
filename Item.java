@@ -15,7 +15,10 @@ public class Item {
     switch(name) {
       case "Rat":
         return "The rat screams as you devour it whole.";
-      
+
+      case "Toe Nail Clipping":
+        return "You struggle to swallow the nail clipping and it gets stuck in your throat but eventually you swallow it.";
+
       default:
         return "You eat the " + name;
     }
