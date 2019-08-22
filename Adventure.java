@@ -21,7 +21,8 @@ public class Adventure {
         new Item("Toe Nail Clipping", true, 10, 3),
         new Item("Sandwich", true, 10, 3),
         new Item("Scissors", false, 10, 3),
-        new Item("Can of Spam", false, 10, 3)
+        new Item("Can of Spam", false, 10, 3),
+        new Item("Paul", true, 10, 3)
       };
       
       for(int i = 0; i < rooms.length; i++) {

@@ -19,6 +19,9 @@ public class Item {
       case "Toe Nail Clipping":
         return "You struggle to swallow the nail clipping and it gets stuck in your throat but eventually you swallow it.";
 
+      case "Paul":
+        return "You eat paul whole and then burp up his beak.";
+
       default:
         return "You eat the " + name;
     }
