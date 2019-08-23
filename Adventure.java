@@ -8,8 +8,15 @@ public class Adventure {
       Boolean exit = false;
       Room[] rooms = new Room[]{
         new Room("Stone Room", "It's like full of stones or whatever", null, null, null, null),
-        new Room("Pig room", "This room is full of pigs, some half eaten", null, null, null, null)
+        new Room("Pig Room", "This room is full of pigs, some half eaten", null, null, null, null),
+        new Room("Dirt Room", "This room is full of dirt, that's it", null, null, null, null),
+        new Room("Hat Room", "This room has many hats glued to the walls", null, null, null, null),
+        new Room("Yellow Room", "You smell pee", null, null, null, null),
+        new Room("Meat Room", "There's a bunch of meat in this room", null, null, null, null),
+        new Room("Paper Room", "It's like a paper bag, very loud", null, null, null, null),
       };
+
+      Room nullRoom = new Room("null", "", null, null, null, null);
       
       Item[] items = new Item[]{
         new Item("Sword", false, 10, 3),
@@ -31,14 +38,13 @@ public class Adventure {
         }
       }
 
-      rooms[0].north = rooms[1];
-      rooms[1].south = rooms[0];
-
       System.out.println("Enter a name for your player");
 
       String name = scanner.nextLine();
 
       Player player = new Player(name, rooms[0]);
+
+      player.room = rooms[0];
 
       while(!exit) {
         System.out.print("> ");
@@ -132,10 +138,20 @@ public class Adventure {
           
           case "n":
             if(player.room.north != null) {
+              if(player.room.north.name == "null") {
+                System.out.println("You can't go there.");
+              } else {
+                System.out.println("You move north into: " + player.room.north.name + ".");
+                player.room = player.room.north;
+              }
+            } else {
+              // int chance = r.nextInt((100 - 0) + 1) + 0;
+              Room newRoom;
+              newRoom = rooms[r.nextInt(rooms.length - 1)];
+              player.room.north = newRoom;
+              player.room.north.south = player.room;
               System.out.println("You move north into: " + player.room.north.name + ".");
               player.room = player.room.north;
-            } else {
-              System.out.println("You can't go there.");
             }
             break;
 
